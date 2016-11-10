@@ -111,12 +111,11 @@
   [dateFormatter setDateFormat:@"EEE MMM dd HH:mm:ss ZZZ yyyy"];
 
   [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-  NSString *creationTimeString = [dateFormatter stringFromDate:connection.creationTime];
-    _onClientConnected(@{
-        @"connectionId": connection.connectionId,
-        @"creationTime": creationTimeString,
-        @"data": connection.data,
-    });
+    NSMutableDictionary * dic = @{@"connectionId": connection.connectionId,
+                                  @"creationTime": creationTimeString}.mutableCopy;
+    dic[@"data"] = connection.data ? connection.data : [[NSData alloc] init];
+    _onClientConnected(dic);
+
 }
 
 /**
