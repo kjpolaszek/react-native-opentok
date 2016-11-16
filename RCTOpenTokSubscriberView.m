@@ -77,8 +77,16 @@
  * Cleans subscriber
  */
 - (void)cleanupSubscriber {
-    [_subscriber.view removeFromSuperview];
-    _subscriber = nil;
+    if (_subscriber) {
+        id videoView = _subscriber.view;
+        if ([videoView respondsToSelector:@selector(setDelegate:)]) {
+            [videoView setDelegate:nil];
+        }
+        [videoView removeFromSuperview];
+        [_session unsubscribe:_subscriber error:nil];
+        _subscriber.delegate = nil;
+        _subscriber = nil;
+    }
 }
 
 #pragma mark - OTSession delegate callbacks
@@ -144,6 +152,7 @@
  */
 - (void)dealloc {
     [self cleanupSubscriber];
+    [_session setDelegate:nil];
     [_session disconnect:nil];
 }
 

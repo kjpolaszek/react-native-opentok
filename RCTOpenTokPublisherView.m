@@ -81,8 +81,16 @@
  * Cleans up publisher
  */
 - (void)cleanupPublisher {
-    [_publisher.view removeFromSuperview];
-    _publisher = nil;
+    if (_publisher) {
+        id videoView = _publisher.view;
+        if ([videoView respondsToSelector:@selector(setDelegate:)]) {
+            [videoView setDelegate:nil];
+        }
+        [videoView removeFromSuperview];
+        [_session unsubscribe:_publisher error:nil];
+        _publisher.delegate = nil;
+        _publisher = nil;
+    }
 }
 
 #pragma mark - OTSession delegate callbacks
@@ -153,6 +161,7 @@
  */
 - (void)dealloc {
     [self cleanupPublisher];
+    [_session setDelegate:nil];
     [_session disconnect:nil];
 }
 
