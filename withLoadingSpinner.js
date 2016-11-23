@@ -7,7 +7,7 @@
  */
 
 import React from 'react';
-import { StyleSheet, View, ActivityIndicator } from 'react-native';
+import { Text,StyleSheet, View, ActivityIndicator } from 'react-native';
 
 const withLoadingSpinner = (Component, callbackName) => class SpinnerView extends React.Component {
   static propTypes = {
@@ -16,6 +16,8 @@ const withLoadingSpinner = (Component, callbackName) => class SpinnerView extend
      * styling
      */
     spinnerContainerStyle: React.PropTypes.any,
+    waitingText: React.PropTypes.any,
+    waitingTextStyle: React.PropTypes.any,
   };
 
   state = {
@@ -42,6 +44,7 @@ const withLoadingSpinner = (Component, callbackName) => class SpinnerView extend
         <Component {...passProps} />
         {this.state.renderSpinner && (
           <View style={[styles.spinnerContainer, this.props.spinnerContainerStyle]}>
+            <Text style={this.props.waitingTextStyle}>{this.props.waitingText}</Text>
             <ActivityIndicator
               animating
             />
