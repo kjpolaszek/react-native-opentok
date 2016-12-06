@@ -11,6 +11,8 @@ import React from 'react';
 import SessionViewProps from './SessionViewProps';
 import withLoadingSpinner from './withLoadingSpinner';
 
+
+
 const noop = () => {};
 
 /**
@@ -65,6 +67,23 @@ class PublisherView extends React.Component {
      * ```
      */
     onClientDisconnected: React.PropTypes.func,
+
+    /**
+     * This property is for enable/disable mic.
+     */
+
+    publishAudio: React.PropTypes.bool,
+
+      /**
+       * This property is for enable/disable camera.
+       */
+
+    publishVideo: React.PropTypes.bool,
+
+
+    cameraPosition: React.PropTypes.string,
+
+
   };
 
   static defaultProps = {

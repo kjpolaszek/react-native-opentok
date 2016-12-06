@@ -16,11 +16,17 @@
 @property (nonatomic, strong) NSString *sessionId;
 @property (nonatomic, strong) NSString *token;
 
+@property (nonatomic, strong) NSString *cameraPosition;
+
+@property (nonatomic) BOOL publishAudio;
+@property (nonatomic) BOOL publishVideo;
+
 @property (nonatomic, copy) RCTDirectEventBlock onPublishError;
 @property (nonatomic, copy) RCTDirectEventBlock onPublishStop;
 @property (nonatomic, copy) RCTDirectEventBlock onPublishStart;
 
 @property (nonatomic, copy) RCTDirectEventBlock onClientConnected;
 @property (nonatomic, copy) RCTDirectEventBlock onClientDisconnected;
+
 
 @end

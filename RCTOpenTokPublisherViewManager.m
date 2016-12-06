@@ -22,10 +22,17 @@ RCT_EXPORT_VIEW_PROPERTY(apiKey, NSString)
 RCT_EXPORT_VIEW_PROPERTY(sessionId, NSString)
 RCT_EXPORT_VIEW_PROPERTY(token, NSString)
 
+RCT_EXPORT_VIEW_PROPERTY(cameraPosition, NSString)
+
+RCT_EXPORT_VIEW_PROPERTY(publishAudio, BOOL)
+RCT_EXPORT_VIEW_PROPERTY(publishVideo, BOOL)
+
 RCT_EXPORT_VIEW_PROPERTY(onPublishStart, RCTDirectEventBlock)
 RCT_EXPORT_VIEW_PROPERTY(onPublishError, RCTDirectEventBlock)
 RCT_EXPORT_VIEW_PROPERTY(onPublishStop, RCTDirectEventBlock)
 RCT_EXPORT_VIEW_PROPERTY(onClientConnected, RCTDirectEventBlock)
 RCT_EXPORT_VIEW_PROPERTY(onClientDisconnected, RCTDirectEventBlock)
+
+
 
 @end

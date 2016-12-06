@@ -1,5 +1,7 @@
 package io.callstack.react.opentok;
 
+import android.util.Log;
+
 import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.uimanager.ThemedReactContext;
@@ -19,6 +21,37 @@ public class PublisherView extends SessionView implements PublisherKit.Publisher
 
     /** {Publisher} active instance of a publisher **/
     private Publisher mPublisher;
+
+
+    public void setPublishVideo(Boolean publishVideo ) {
+        Log.d("","PublishVideo:" + (publishVideo ? "true": "false"));
+        if (mPublisher != null) {
+            mPublisher.setPublishVideo(publishVideo);
+        }
+    }
+
+    public void setPublishAudio(Boolean publishAudio) {
+        Log.d("","PublishAudio:" + (publishAudio ? "true": "false"));
+        if (mPublisher != null) {
+            mPublisher.setPublishAudio(publishAudio);
+        }
+    }
+
+    public void setCameraPosition(String cameraPosition) {
+        Log.d("","CameraPosition: " + cameraPosition);
+        if (mPublisher != null) {
+            mPublisher.cycleCamera();
+        }
+    }
+
+//    public Boolean getPublishVideo() {
+//        return mPublisher.getPublishVideo();
+//    }
+//
+//    public Boolean getPublishAudio() {
+//        return mPublisher.getPublishAudio();
+//    }
+
 
     public PublisherView(ThemedReactContext reactContext) {
         super(reactContext);

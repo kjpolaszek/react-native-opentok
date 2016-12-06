@@ -93,6 +93,45 @@
     }
 }
 
+- (void) setPublishAudio:(BOOL)publishAudio {
+    [_publisher setPublishAudio:publishAudio];
+}
+
+- (BOOL) publishAudio {
+    return _publisher.publishAudio;
+}
+
+- (void)setPublishVideo:(BOOL)publishVideo {
+    [_publisher setPublishVideo:publishVideo];
+}
+
+- (BOOL) publishVideo {
+    return _publisher.publishVideo;
+}
+
+- (void) setCameraPosition:(NSString *)cameraPosition {
+    if ([cameraPosition containsString:@"front"]) {
+        [_publisher setCameraPosition:AVCaptureDevicePositionFront];
+        return;
+    }
+    if ([cameraPosition containsString:@"back"]) {
+        [_publisher setCameraPosition:AVCaptureDevicePositionBack];
+        return;
+    }
+    [_publisher setCameraPosition:AVCaptureDevicePositionUnspecified];
+}
+
+- (NSString*) cameraPosition {
+    if (_publisher.cameraPosition == AVCaptureDevicePositionBack) {
+        return @"back";
+    }
+    if (_publisher.cameraPosition == AVCaptureDevicePositionFront) {
+        return @"front";
+    }
+    return @"unspecified";
+}
+
+
 #pragma mark - OTSession delegate callbacks
 
 /**

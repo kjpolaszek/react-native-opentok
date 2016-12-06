@@ -6,6 +6,12 @@ const listener = null;
 export const connect = SessionManager.connect;
 export const sendMessage = SessionManager.sendMessage;
 
+export const CameraPosition = {
+  CameraPositionFront: 'front',
+  CameraPositionBack: 'back',
+  CameraPositionUnspecified: 'unspecified',
+}
+
 export const onMessageRecieved = (callback) => {
   listener = NativeAppEventEmitter.addListener(
       'onMessageRecieved',
