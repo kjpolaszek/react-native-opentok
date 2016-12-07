@@ -65,6 +65,15 @@
     [self attachSubscriberView];
 }
 
+- (void) setSubscribeToAudio:(BOOL)subscribeToAudio {
+    [_subscriber setSubscribeToAudio:subscribeToAudio];
+}
+
+- (void)setSubscribeToVideo:(BOOL)subscribeToVideo {
+    [_subscriber setSubscribeToVideo:subscribeToVideo];
+}
+
+
 /**
  * Attaches subscriber preview
  */

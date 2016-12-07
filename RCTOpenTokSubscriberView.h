@@ -16,6 +16,9 @@
 @property (nonatomic, strong) NSString *sessionId;
 @property (nonatomic, strong) NSString *token;
 
+@property (nonatomic) BOOL subscribeToAudio;
+@property (nonatomic) BOOL subscribeToVideo;
+
 @property (nonatomic, copy) RCTDirectEventBlock onSubscribeError;
 @property (nonatomic, copy) RCTDirectEventBlock onSubscribeStop;
 @property (nonatomic, copy) RCTDirectEventBlock onSubscribeStart;

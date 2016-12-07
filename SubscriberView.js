@@ -39,6 +39,20 @@ class SubscriberView extends React.Component {
      * This function is called on subscribe stop
      */
     onSubscribeStop: React.PropTypes.func,
+
+    /**
+     * This property is for enable/disable mic.
+     */
+
+    subscribeToAudio: React.PropTypes.bool,
+
+    /**
+     * This property is for enable/disable camera.
+     */
+
+    subscribeToVideo: React.PropTypes.bool,
+
+
   };
 
   static defaultProps = {

@@ -21,6 +21,9 @@ RCT_EXPORT_VIEW_PROPERTY(apiKey, NSString)
 RCT_EXPORT_VIEW_PROPERTY(sessionId, NSString)
 RCT_EXPORT_VIEW_PROPERTY(token, NSString)
 
+RCT_EXPORT_VIEW_PROPERTY(subscribeToAudio, BOOL)
+RCT_EXPORT_VIEW_PROPERTY(subscribeToVideo, BOOL)
+
 RCT_EXPORT_VIEW_PROPERTY(onSubscribeStart, RCTDirectEventBlock)
 RCT_EXPORT_VIEW_PROPERTY(onSubscribeError, RCTDirectEventBlock)
 RCT_EXPORT_VIEW_PROPERTY(onSubscribeStop, RCTDirectEventBlock)
