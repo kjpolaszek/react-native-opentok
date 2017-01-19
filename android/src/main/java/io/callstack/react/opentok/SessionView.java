@@ -41,6 +41,13 @@ abstract public class SessionView extends FrameLayout implements Session.Session
         }
     }
 
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        if (mSession != null) {
+            mSession.disconnect();
+        }
+    }
+
     private void mount() {
         mSession = new Session(getContext(), mApiKey, mSessionId);
         mSession.setSessionListener(this);
